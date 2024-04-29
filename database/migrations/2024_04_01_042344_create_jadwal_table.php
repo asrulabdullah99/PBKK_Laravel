@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreign('id_kelas')->references('id')->on('kelas');
             $table->unsignedBigInteger('id_dosen');
             $table->foreign('id_dosen')->references('user_id')->on('dosen');
-            $table->date('waktu');
+            $table->time('waktu');
             $table->string('hari');
             $table->timestamps();
         });
