@@ -24,10 +24,9 @@ class UserController extends Controller
        return view('user.index',compact('user'));
     }
 
-    public function add(): View
+    public function create(): View
     {
-       $user = User::latest()->paginate(10);
-       return view('user.index',compact('user'));
+        return view('user.create');
     }
 
     public function store(Request $request): RedirectResponse
@@ -39,11 +38,10 @@ class UserController extends Controller
             'password'      => 'required|min:5',
         ]);
 
-        //create product
         User::create([
             'username'          => $request->username,
             'email'             => $request->email,
-            'password'          => md5($request->price),
+            'password'          => md5($request->password), 
         ]);
 
         //redirect to index
