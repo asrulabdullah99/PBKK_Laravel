@@ -33,21 +33,69 @@ class UserController extends Controller
     {
         //validate form
         $request->validate([
-            'username'      => 'required|min:5|unique:user:username',
-            'email'         => 'required|min:5|unique:user:email|email',
+            'username'      => 'required|min:5|unique:users,username',
+            'email'         => 'required|min:5|unique:users,email|email',
             'password'      => 'required|min:5',
+            'level'         => 'required'
         ]);
 
         User::create([
             'username'          => $request->username,
             'email'             => $request->email,
             'password'          => md5($request->password), 
+            'level'             => $request->level,
         ]);
+        
+        
 
         //redirect to index
-        return redirect()->route('user.index')->with(['success' => 'Data Berhasil Disimpan!']);
+        return redirect()->route('pengguna.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
-    
+
+    public function show(string $id): View
+    {
+        $pengguna = User::findOrFail($id);
+
+        return view('user.show', compact('pengguna'));
+    }
+
+    public function edit(string $id): View
+    {
+        $pengguna = User::findOrFail($id);
+
+        return view('user.edit', compact('pengguna'));
+    }
+
+    public function update(Request $request, $id): RedirectResponse
+    {
+        //validate form
+        $request->validate([
+            'username'      => 'required|min:5',
+            'email'         => 'required|min:5',
+            'password'      => 'required|min:5',
+            'level'         => 'required'
+        ]);
+
+        $pengguna = User::findOrFail($id);
+        $pengguna->update([
+                'username'  => $request->username,
+                'email'     => $request->email,
+                'password'  => $request->password,
+                'level'     => $request->level
+            ]);
+
+        return redirect()->route('pengguna.index')->with(['success' => 'Data Berhasil Diubah!']);
+    }
+
+
+     public function destroy($id): RedirectResponse
+    {
+        $pengguna = User::findOrFail($id);
+
+        $pengguna->delete();
+
+        return redirect()->route('pengguna.index')->with(['success' => 'Data Berhasil Dihapus!']);
+    }
 
 
 }

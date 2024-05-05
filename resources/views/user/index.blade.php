@@ -18,7 +18,7 @@
                 </div>
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
-                        <a href="{{ route('user.create') }}" class="btn btn-md btn-success mb-3">TAMBAH</a>
+                        <a href="{{ route('pengguna.create') }}" class="btn btn-md btn-success mb-3">TAMBAH</a>
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
@@ -39,9 +39,11 @@
                                         <td>{{ $pengguna->email }}</td>
                                         <td>{{ $pengguna->password }}</td>
                                         <td class="text-center">
-                                            <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="#" method="POST">
-                                                <a href="#" class="btn btn-sm btn-dark">SHOW</a>
-                                                <a href="#" class="btn btn-sm btn-primary">EDIT</a>
+                                            <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('pengguna.destroy', $pengguna->id) }}" method="POST">
+                                                <a href="{{ route('pengguna.show', $pengguna->id) }}" class="btn btn-sm btn-dark">SHOW</a>
+                                                <a href="{{ route('pengguna.edit', $pengguna->id) }}" class="btn btn-sm btn-primary">EDIT</a>
+                                                @csrf
+                                                @method('DELETE')
                                                 <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
                                             </form>
                                         </td>

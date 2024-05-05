@@ -13,3 +13,4 @@ Route::get('/', function () {
 // Route::get('/pengguna/create', [UserController::class,'create']);
 
 Route::resource('/pengguna',\App\Http\Controllers\UserController::class);
+
