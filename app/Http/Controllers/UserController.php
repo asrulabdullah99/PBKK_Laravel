@@ -31,6 +31,7 @@ class UserController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
+       
         //validate form
         $request->validate([
             'username'      => 'required|min:5|unique:users,username',
@@ -42,12 +43,9 @@ class UserController extends Controller
         User::create([
             'username'          => $request->username,
             'email'             => $request->email,
-            'password'          => md5($request->password), 
+            'password'          => bcrypt($request->password), 
             'level'             => $request->level,
         ]);
-        
-        
-
         //redirect to index
         return redirect()->route('pengguna.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
@@ -80,7 +78,7 @@ class UserController extends Controller
         $pengguna->update([
                 'username'  => $request->username,
                 'email'     => $request->email,
-                'password'  => $request->password,
+                'password'  => md5($request->password),
                 'level'     => $request->level
             ]);
 
@@ -91,9 +89,7 @@ class UserController extends Controller
      public function destroy($id): RedirectResponse
     {
         $pengguna = User::findOrFail($id);
-
         $pengguna->delete();
-
         return redirect()->route('pengguna.index')->with(['success' => 'Data Berhasil Dihapus!']);
     }
 

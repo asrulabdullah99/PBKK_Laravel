@@ -18,7 +18,7 @@
                 </div>
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
-                        <a href="{{ route('pengguna.create') }}" class="btn btn-md btn-success mb-3">TAMBAH</a>
+                        <a href="{{ route('pengguna.create') }}" class="btn btn-md btn-info mb-3">TAMBAH</a>
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
@@ -26,6 +26,7 @@
                                     <th scope="col">Username</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">Password</th>
+                                    <th scope="col">Level</th>
                                     <th scope="col" style="width: 20%">ACTIONS</th>
                                 </tr>
                             </thead>
@@ -38,6 +39,7 @@
                                         <td>{{ $pengguna->username }}</td>
                                         <td>{{ $pengguna->email }}</td>
                                         <td>{{ $pengguna->password }}</td>
+                                        <td>{{ $pengguna->level }}</td>
                                         <td class="text-center">
                                             <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('pengguna.destroy', $pengguna->id) }}" method="POST">
                                                 <a href="{{ route('pengguna.show', $pengguna->id) }}" class="btn btn-sm btn-dark">SHOW</a>
