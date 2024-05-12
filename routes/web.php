@@ -10,4 +10,5 @@ Route::get('/', function () {
 
 Route::resource('/pengguna',\App\Http\Controllers\UserController::class);
 Route::resource('/kelas',\App\Http\Controllers\KelasController::class);
+Route::resource('/matakuliah',\App\Http\Controllers\MatakuliahController::class);
 
