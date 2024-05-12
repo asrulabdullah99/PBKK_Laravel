@@ -34,4 +34,25 @@ class KelasController extends Controller
         //redirect to index
         return redirect()->route('kelas.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
+
+    public function edit(string $id): View
+    {
+        $dataKelas = Kelas::findOrFail($id);
+        return view('kelas.edit', compact('dataKelas'));
+    }
+
+    public function update(Request $request, $id): RedirectResponse
+    {
+        //validate form
+        $request->validate([
+            'nama_kelas'      => 'required|min:2'
+        ]);
+
+        $dataKelas = Kelas::findOrFail($id);
+        $dataKelas->update([
+             'nama_kelas'  => $request->nama_kelas
+            ]);
+
+        return redirect()->route('kelas.index')->with(['success' => 'Data Berhasil Diubah!']);
+    }
 }
