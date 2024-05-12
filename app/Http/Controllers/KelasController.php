@@ -41,6 +41,13 @@ class KelasController extends Controller
         return view('kelas.edit', compact('dataKelas'));
     }
 
+    public function show(string $id): View
+    {
+        $kelas = Kelas::findOrFail($id);
+
+        return view('kelas.show', compact('kelas'));
+    }
+
     public function update(Request $request, $id): RedirectResponse
     {
         //validate form
@@ -54,5 +61,12 @@ class KelasController extends Controller
             ]);
 
         return redirect()->route('kelas.index')->with(['success' => 'Data Berhasil Diubah!']);
+    }
+
+    public function destroy($id): RedirectResponse
+    {
+        $kelas = Kelas::findOrFail($id);
+        $kelas->delete();
+        return redirect()->route('kelas.index')->with(['success' => 'Data Berhasil Dihapus!']);
     }
 }
