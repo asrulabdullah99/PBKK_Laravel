@@ -35,9 +35,9 @@
                                         </td>
                                         <td>{{ $kelas->nama_kelas }}</td>
                                         <td class="text-center">
-                                            <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('kelas.destroy', $nama_kelas->id) }}" method="POST">
-                                                <a href="{{ route('kelas.show', $nama_kelas->id) }}" class="btn btn-sm btn-dark">SHOW</a>
-                                                <a href="{{ route('kelas.edit', $nama_kelas->id) }}" class="btn btn-sm btn-primary">EDIT</a>
+                                            <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('kelas.destroy', $kelas->id) }}" method="POST">
+                                                <a href="{{ route('kelas.show', $kelas->id) }}" class="btn btn-sm btn-dark">SHOW</a>
+                                                <a href="{{ route('kelas.edit', $kelas->id) }}" class="btn btn-sm btn-primary">EDIT</a>
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
