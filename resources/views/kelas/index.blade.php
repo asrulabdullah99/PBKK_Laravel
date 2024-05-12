@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div>
-                    <h3 class="text-center my-4">Data Pengguna</h3>
+                    <h3 class="text-center my-4">Data Kelas</h3>
                     <hr>
                 </div>
                 <div class="card border-0 shadow-sm rounded">
@@ -23,10 +23,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col">No</th>
-                                    <th scope="col">Username</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Password</th>
-                                    <th scope="col">Level</th>
+                                    <th scope="col">Nama Kelas</th>
                                     <th scope="col" style="width: 20%">ACTIONS</th>
                                 </tr>
                             </thead>
@@ -37,13 +34,10 @@
                                             {{ ++$index }}
                                         </td>
                                         <td>{{ $kelas->nama_kelas }}</td>
-                                        <td>{{ $kelas->email }}</td>
-                                        <td>{{ $kelas->password }}</td>
-                                        <td>{{ $kelas->level }}</td>
                                         <td class="text-center">
-                                            <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('pengguna.destroy', $pengguna->id) }}" method="POST">
-                                                <a href="{{ route('pengguna.show', $pengguna->id) }}" class="btn btn-sm btn-dark">SHOW</a>
-                                                <a href="{{ route('pengguna.edit', $pengguna->id) }}" class="btn btn-sm btn-primary">EDIT</a>
+                                            <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('kelas.destroy', $nama_kelas->id) }}" method="POST">
+                                                <a href="{{ route('kelas.show', $nama_kelas->id) }}" class="btn btn-sm btn-dark">SHOW</a>
+                                                <a href="{{ route('kelas.edit', $nama_kelas->id) }}" class="btn btn-sm btn-primary">EDIT</a>
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
@@ -52,7 +46,7 @@
                                     </tr>
                                 @empty
                                     <div class="alert alert-danger">
-                                        Data User Belum Ada.
+                                        Data Kelas Belum Ada.
                                     </div>
                                 @endforelse
                             </tbody>

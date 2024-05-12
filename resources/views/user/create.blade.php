@@ -18,7 +18,7 @@
                 </div>
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
-                        <form action="{{ route('pengguna.store') }}" method="POST" >
+                        <form action="{{ route('pengguna.store') }}" method="POST"  >
                           @csrf
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Username</label>
@@ -64,7 +64,7 @@
                               </div>
                               <br/>
                               <div class="form-group">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary">Simpan</button>
                               </div>
                           </form>
            
