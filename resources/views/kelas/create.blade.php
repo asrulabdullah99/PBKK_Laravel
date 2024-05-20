@@ -18,7 +18,7 @@
                 </div>
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
-                        <form action="{{ route('kelas.store') }}" method="POST"   >
+                        <form action="{{ route('kelas.store') }}" method="POST">
                           @csrf
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Nama Kelas</label>

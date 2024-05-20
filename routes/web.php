@@ -3,12 +3,14 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\KelasController;
+use App\Http\Controllers\MatakuliahController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/pengguna',\App\Http\Controllers\UserController::class);
-Route::resource('/kelas',\App\Http\Controllers\KelasController::class);
-Route::resource('/matakuliah',\App\Http\Controllers\MatakuliahController::class);
+Route::resource('/pengguna',UserController::class);
+Route::resource('/kelas',KelasController::class);
+Route::resource('/matakuliah',MatakuliahController::class);
 

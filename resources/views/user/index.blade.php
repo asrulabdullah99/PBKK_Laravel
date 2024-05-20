@@ -18,7 +18,7 @@
                 </div>
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
-                        <a href="{{ route('kelas.create') }}" class="btn btn-md btn-info mb-3">TAMBAH</a>
+                        <a href="{{ route('pengguna.create') }}" class="btn btn-md btn-info mb-3">TAMBAH</a>
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
@@ -31,15 +31,15 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($dataKelas as $index => $kelas)
+                                @forelse ($user as $index => $pengguna)
                                     <tr>
                                         <td class="text-center">
                                             {{ ++$index }}
                                         </td>
-                                        <td>{{ $kelas->nama_kelas }}</td>
-                                        <td>{{ $kelas->email }}</td>
-                                        <td>{{ $kelas->password }}</td>
-                                        <td>{{ $kelas->level }}</td>
+                                        <td>{{ $pengguna->username }}</td>
+                                        <td>{{ $pengguna->email }}</td>
+                                        <td>{{ $pengguna->password }}</td>
+                                        <td>{{ $pengguna->level }}</td>
                                         <td class="text-center">
                                             <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('pengguna.destroy', $pengguna->id) }}" method="POST">
                                                 <a href="{{ route('pengguna.show', $pengguna->id) }}" class="btn btn-sm btn-dark">SHOW</a>
