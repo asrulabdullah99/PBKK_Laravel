@@ -45,4 +45,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    //relationship
+    public function dataTambahanDosen(){
+        return $this->hasOne(Dosen::class,'user_id')->orderby('nidn','asc');
+    }
 }

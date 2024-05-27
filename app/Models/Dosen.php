@@ -18,6 +18,8 @@ class Dosen extends Model
         'jenis_kelamin',
     ];
 
-    
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
     
 }
