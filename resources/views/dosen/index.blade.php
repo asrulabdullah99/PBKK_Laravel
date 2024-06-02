@@ -34,27 +34,20 @@
                             <tbody>
                                 @forelse ($dosen as $index => $data_dosen)
                                     <tr>
-                                        <td class="text-center">
-                                            {{ ++$index }}
-                                        </td>
+                                        <td class="text-center">{{ ++$index }}</td>
                                         <td>{{ $data_dosen->nidn }}</td>
                                         <td>{{ $data_dosen->user->email }}</td>
                                         <td>{{ $data_dosen->nama_dosen }}</td>
-                                            @if($data_dosen->jenis_kelamin == 'L')
-                                            <td> Laki-Laki </td>
-                                            @else 
-                                            <td> Perempuan </td>
-                                            @endif
+                                        <td>{{ $data_dosen->jenis_kelamin }}</td>
                                         <td>{{ $data_dosen->user->username }}</td>
-
                                         <td class="text-center">
-                                            {{-- <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('dosen.destroy', $data_dosen->id) }}" method="POST">
-                                                <a href="{{ route('dosen.show', $data_dosen->id) }}" class="btn btn-sm btn-dark">SHOW</a>
-                                                <a href="{{ route('dosen.edit', $data_dosen->id) }}" class="btn btn-sm btn-primary">EDIT</a>
+                                            <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('dosen.destroy', $data_dosen->nidn) }}" method="POST">
+                                                <a href="{{ route('dosen.show', $data_dosen->nidn) }}" class="btn btn-sm btn-dark">SHOW</a>
+                                                <a href="{{ route('dosen.edit', $data_dosen->nidn) }}" class="btn btn-sm btn-primary">EDIT</a>
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
-                                            </form> --}}
+                                            </form>
                                         </td>
                                     </tr>
                                 @empty

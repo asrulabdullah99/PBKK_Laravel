@@ -46,7 +46,7 @@ class User extends Authenticatable
         ];
     }
 
-    //relationship
+    // //relationship
     public function dataTambahanDosen(){
         return $this->hasOne(Dosen::class,'user_id')->orderby('nidn','asc');
     }

@@ -18,6 +18,8 @@ class Dosen extends Model
         'jenis_kelamin',
     ];
 
+    protected $primaryKey = 'nidn';
+
     public function user(){
         return $this->belongsTo(User::class);
     }

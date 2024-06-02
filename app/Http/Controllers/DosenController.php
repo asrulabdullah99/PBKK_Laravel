@@ -24,7 +24,7 @@ class DosenController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
-       
+        //dd($request->all());
         //validate form
         $request->validate([
             'nidn'          => 'required|min:10|unique:dosen,nidn',
@@ -38,8 +38,48 @@ class DosenController extends Controller
             'nama_dosen'       => $request->nama_dosen, 
             'jenis_kelamin'    => $request->jenis_kelamin,
         ]);
+       
         //redirect to index
         return redirect()->route('dosen.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
+
+    public function show(string $id): View
+    {
+        // $pengguna = User::findOrFail($id);
+
+        // return view('user.show', compact('pengguna'));
+    }
+
+    public function edit(string $nidn): View
+    {
+        $dosen = Dosen::findOrFail($nidn);
+        $user = User::all();
+
+        return view('dosen.edit', compact('dosen','user'));
+    }
+
+    public function update(Request $request, $id): RedirectResponse
+    {
+        $request->validate([
+            'nama_dosen'    => 'required|min:5',
+            'jenis_kelamin' => 'required'
+        ]);
+        $dosen = Dosen::findOrFail($id);
+        $dosen->update([
+            'user_id'          => $request->user_id,
+            'nama_dosen'       => $request->nama_dosen, 
+            'jenis_kelamin'    => $request->jenis_kelamin,
+        ]);
+         return redirect()->route('dosen.index')->with(['success' => 'Data Berhasil Diubah!']);
+    }
+
+
+     public function destroy($nidn): RedirectResponse
+    {
+         $dosen = Dosen::findOrFail($nidn);
+         $dosen->delete();
+     return redirect()->route('dosen.index')->with(['success' => 'Data Berhasil Dihapus!']);
+    }
+
     
 }
