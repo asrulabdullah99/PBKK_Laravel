@@ -18,7 +18,7 @@ class DosenController extends Controller
 
     public function create(): View
     {
-        $user = User::all();
+        $user = User::where('level','dosen')->get();
         return view('dosen.create', compact('user'));
     }
 
@@ -78,7 +78,7 @@ class DosenController extends Controller
     {
          $dosen = Dosen::findOrFail($nidn);
          $dosen->delete();
-     return redirect()->route('dosen.index')->with(['success' => 'Data Berhasil Dihapus!']);
+        return redirect()->route('dosen.index')->with(['success' => 'Data Berhasil Dihapus!']);
     }
 
     

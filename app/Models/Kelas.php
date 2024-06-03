@@ -14,4 +14,8 @@ class Kelas extends Model
         'nama_kelas',
     ];
 
+
+    public function dataTambahanMahasiswa(){
+        return $this->hasOne(Mahasiswa::class,'id_kelas');
+    }
 }

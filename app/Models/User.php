@@ -50,4 +50,8 @@ class User extends Authenticatable
     public function dataTambahanDosen(){
         return $this->hasOne(Dosen::class,'user_id')->orderby('nidn','asc');
     }
+        // relationship
+    public function dataTambahanMahasiswa(){
+        return $this->hasOne(Mahasiswa::class,'user_id')->orderby('nim','asc');
+    }
 }
