@@ -59,6 +59,11 @@
                                 <label class="form-check-label" for="flexRadioDefault1">
                                   Perempuan
                                 </label>
+                                @error('jenis_kelamin')
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
+                                @enderror
                               </div>
                               <br/>
                               <div class="form-group">

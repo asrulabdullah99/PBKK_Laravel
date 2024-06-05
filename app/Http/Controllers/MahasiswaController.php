@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Kelas;
 use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 
@@ -21,7 +23,9 @@ class MahasiswaController extends Controller
      */
     public function create()
     {
-        //
+        $user = User::where('level','mahasiswa')->get();
+        $kelas = Kelas::all();
+        return view('mahasiswa.create', compact('user','kelas'));
     }
 
     /**
@@ -29,7 +33,27 @@ class MahasiswaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validate form
+        //dd($request->all());
+        $request->validate([
+            'nim'               => 'required|min:9|unique:dosen,nidn',
+            'nama_mahasiswa'    => 'required|min:5',
+            'jenis_kelamin'     => 'required',
+            'alamat_mhs'        => 'required'
+
+        ]);
+
+        Mahasiswa::create([
+            'user_id'          => $request->user_id,
+            'nim'              => $request->nim,
+            'nama_mahasiswa'   => $request->nama_mahasiswa, 
+            'jenis_kelamin'    => $request->jenis_kelamin,
+            'alamat_mhs'       => $request->alamat_mhs,
+            'id_kelas'         => $request->id_kelas,
+        ]);
+       
+        //redirect to index
+        return redirect()->route('mahasiswa.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
     /**

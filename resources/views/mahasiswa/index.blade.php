@@ -40,15 +40,15 @@
                                         <td>{{ $data_mahasiswa->nama_mahasiswa }}</td>
                                         <td>{{ $data_mahasiswa->jenis_kelamin }}</td>
                                         <td>{{ $data_mahasiswa->kelas->nama_kelas }}</td> 
-                                        {{-- <td class="text-center">
-                                            <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('dosen.destroy', $data_mahasiswa->nidn) }}" method="POST">
-                                                <a href="{{ route('dosen.show', $data_mahasiswa->nidn) }}" class="btn btn-sm btn-dark">SHOW</a>
-                                                <a href="{{ route('dosen.edit', $data_mahasiswa->nidn) }}" class="btn btn-sm btn-primary">EDIT</a>
+                                        <td class="text-center">
+                                            <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('mahasiswa.destroy', $data_mahasiswa->nim) }}" method="POST">
+                                                <a href="{{ route('mahasiswa.show', $data_mahasiswa->nim) }}" class="btn btn-sm btn-dark">SHOW</a>
+                                                <a href="{{ route('mahasiswa.edit', $data_mahasiswa->nim) }}" class="btn btn-sm btn-primary">EDIT</a>
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
                                             </form>
-                                        </td> --}}
+                                        </td>
                                     </tr>
                                 @empty
                                     <div class="alert alert-danger">
