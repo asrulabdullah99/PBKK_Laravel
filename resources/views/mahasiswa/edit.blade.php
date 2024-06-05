@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tambah Data Dosen</title>
+    <title>Tambah Data Mahasiswa</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body style="background: white">
@@ -13,54 +13,77 @@
         <div class="row">
             <div class="col-md-12">
                 <div>
-                    <h3 class="text-center my-4">Data Dosen</h3>
+                    <h3 class="text-center my-4">Data Mahasiswa</h3>
                     <hr>
                 </div>
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
-                        <form action="{{ route('dosen.update',$dosen->nidn) }}" method="POST"  >
+                        <form action="{{ route('mahasiswa.update',$mahasiswa->nim) }}" method="POST"  >
                           @csrf
                           @method('PUT')
-                            <div class="form-group">
-                                <label for="exampleFormControlSelect1">Username</label>
-                                <select class="form-control" name="user_id" id="exampleFormControlSelect1">
-                                    @foreach ($user as $data_user)
-                                        <option value="{{ $data_user->id }}">{{ $data_user->email }}</option>
-                                    @endforeach
-                                </select>
-                               </div>
-                               <div class="form-group">
-                                <label for="exampleInputEmail1">Nama Dosen</label>
-                                <input type="text" name="nama_dosen" class="form-control" id="exampleInputEmail1" value="{{ old('nama_dosen', $dosen->nama_dosen) }}">
-                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                                @error('nama_dosen')
-                                <div class="alert alert-danger mt-2">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                              </div>
-                              <div class="form-group">
-                                <label for="exampleInputEmail1">NIDN</label>
-                                <input type="text" name="nidn" class="form-control" id="exampleInputEmail1" value="{{ old('nidn', $dosen->nidn) }}">
-                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                                @error('nidn')
-                                <div class="alert alert-danger mt-2">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                              </div>
-                              <div class="form-group">
-                                <label for="exampleInputEmail1">Jenis Kelamin</label>
-                                <br>
-                                <input class="form-check-input" value="L" {{ $dosen->jenis_kelamin == 'L' ? 'checked':''  }}  type="radio" name="jenis_kelamin" id="flexRadioDefault1">
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                  Laki-Laki
-                                </label>
-                                <input class="form-check-input" value="P" {{ $dosen->jenis_kelamin == 'P' ? 'checked':''  }} type="radio" name="jenis_kelamin" id="flexRadioDefault1">
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                  Perempuan
-                                </label>
-                              </div>
+                          <div class="form-group">
+                            <label for="exampleFormControlSelect1">Email</label>
+                            <select class="form-control" name="user_id" id="exampleFormControlSelect1">
+                                @foreach ($user as $data_user)
+                                    <option value="{{ $data_user->id }}">{{ $data_user->email }}</option>
+                                @endforeach
+                            </select>
+                           </div>
+                           <div class="form-group">
+                            <label for="exampleInputEmail1">Nama Mahasiswa</label>
+                            <input type="text" name="nama_mahasiswa" class="form-control" id="exampleInputEmail1" value="{{ old('nama_mahasiswa', $mahasiswa->nama_mahasiswa) }}" placeholder="Enter nama mahasiswa">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            @error('nama_mahasiswa')
+                            <div class="alert alert-danger mt-2">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleInputEmail1">NIM</label>
+                            <input type="text" name="nim" class="form-control" id="exampleInputEmail1" value="{{ old('nim', $mahasiswa->nim) }}" placeholder="Enter NIM">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            @error('nim')
+                            <div class="alert alert-danger mt-2">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleInputEmail1">Jenis Kelamin</label>
+                            <br>
+                            <input class="form-check-input" value="L" {{ $mahasiswa->jenis_kelamin == 'L' ? 'checked':''  }} type="radio" name="jenis_kelamin" id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                              Laki-Laki
+                            </label>
+                            <input class="form-check-input" value="P" {{ $mahasiswa->jenis_kelamin == 'P' ? 'checked':''  }}  type="radio" name="jenis_kelamin" id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                              Perempuan
+                            </label>
+                            @error('jenis_kelamin')
+                            <div class="alert alert-danger mt-2">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                          </div>
+
+                          <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Alamat Mahasiswa</label>
+                            <textarea class="form-control" name="alamat_mhs" id="exampleFormControlTextarea1" rows="3">{{ old('alamat_mhs', $mahasiswa->alamat_mhs) }}</textarea>
+                            @error('alamat_mhs')
+                            <div class="alert alert-danger mt-2">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleFormControlSelect1">Nama Kelas</label>
+                            <select class="form-control" name="id_kelas" id="exampleFormControlSelect1">
+                                @foreach ($kelas as $data_kelas)
+                                    <option value="{{ $data_kelas->id }}">{{ $data_kelas->nama_kelas }}</option>
+                                @endforeach
+                            </select>
+                           </div>
                               <br/>
                               <div class="form-group">
                                 <button type="submit" class="btn btn-primary">Simpan</button>

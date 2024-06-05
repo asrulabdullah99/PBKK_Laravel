@@ -53,7 +53,7 @@ class DosenController extends Controller
     public function edit(string $nidn): View
     {
         $dosen = Dosen::findOrFail($nidn);
-        $user = User::all();
+        $user = User::where('level','dosen')->get();
 
         return view('dosen.edit', compact('dosen','user'));
     }
