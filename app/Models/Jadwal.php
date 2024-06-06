@@ -19,4 +19,19 @@ class Jadwal extends Model
         'hari',
     ];
 
+    protected $primaryKey = 'id_jadwal';
+
+    public function dosen(){
+        return $this->belongsTo(Dosen::class, 'id_dosen');
+    }
+
+    public function kelas(){
+        return $this->belongsTo(Kelas::class, 'id_kelas');
+    }
+
+    public function matakuliah(){
+        return $this->belongsTo(Matakuliah::class, 'id_matkul');
+    }
+
+
 }

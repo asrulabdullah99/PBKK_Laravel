@@ -14,4 +14,8 @@ class Matakuliah extends Model
         'nama_matakuliah',
     ];
 
+    public function dataTambahanJadwal(){
+        return $this->hasMany(Jadwal::class, 'id_jadwal');
+    }
+
 }

@@ -24,4 +24,7 @@ class Dosen extends Model
         return $this->belongsTo(User::class);
     }
     
+    public function dataTambahanJadwal(){
+        return $this->hasMany(Jadwal::class, 'id_jadwal');
+    }
 }
