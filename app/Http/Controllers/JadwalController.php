@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dosen;
+use App\Models\Kelas;
+use App\Models\Jadwal;
+use App\Models\Matakuliah;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -12,12 +16,11 @@ class JadwalController extends Controller
      */
     public function index()
     {
-         $jadwal = DB::table('mahasiswa')
-            ->join('kelas', 'kelas.id', '=', 'mahasiswa.id_kelas')
-            ->join('jadwal', 'jadwal.id_kelas', '=', 'kelas.id')
+         $jadwal = DB::table('jadwal')
+            ->join('kelas', 'kelas.id', '=', 'jadwal.id_kelas')
             ->join('matakuliah','matakuliah.id','=','jadwal.id_matkul')
             ->join('dosen','dosen.user_id','=','jadwal.id_dosen')
-            ->select('mahasiswa.nama_mahasiswa', 'jadwal.hari','jadwal.waktu','dosen.nama_dosen','matakuliah.nama_matakuliah')
+            ->select('kelas.nama_kelas','jadwal.hari','jadwal.waktu','dosen.nama_dosen','matakuliah.nama_matakuliah','jadwal.id')
             ->get();
 
             return view('jadwal.index',compact('jadwal'));
@@ -28,7 +31,10 @@ class JadwalController extends Controller
      */
     public function create()
     {
-        //
+        $matakuliah = Matakuliah::all();
+        $kelas = Kelas::all();
+        $dosen = Dosen::all();
+        return view('jadwal.create', compact('matakuliah','kelas','dosen'));
     }
 
     /**
@@ -36,7 +42,26 @@ class JadwalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         //validate form
+        //dd($request->all());
+        // $request->validate([
+        //     'nim'               => 'required|min:9|unique:dosen,nidn',
+        //     'nama_mahasiswa'    => 'required|min:5',
+        //     'jenis_kelamin'     => 'required',
+        //     'alamat_mhs'        => 'required'
+
+        // ]);
+
+        Jadwal::create([
+            'id_matkul'          => $request->id_matkul,
+            'id_kelas'              => $request->id_kelas,
+            'id_dosen'   => $request->id_dosen, 
+            'waktu'    => $request->waktu,
+            'hari'       => $request->hari,
+        ]);
+       
+        //redirect to index
+        return redirect()->route('jadwal.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
     /**
@@ -52,7 +77,12 @@ class JadwalController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $jadwal = Jadwal::findOrFail($id);
+        $matakuliah = Matakuliah::all();
+        $kelas = Kelas::all();
+        $dosen = Dosen::all();
+
+        return view('jadwal.edit', compact('jadwal','matakuliah','kelas','dosen'));
     }
 
     /**
@@ -60,7 +90,25 @@ class JadwalController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // $request->validate([
+        //     'nim'               => 'required|min:9|unique:dosen,nidn',
+        //     'nama_mahasiswa'    => 'required|min:5',
+        //     'jenis_kelamin'     => 'required',
+        //     'alamat_mhs'        => 'required'
+
+        // ]);
+
+        $jadwal = Jadwal::findOrFail($id);
+        $jadwal->update([
+          'id_matkul'          => $request->id_matkul,
+            'id_kelas'              => $request->id_kelas,
+            'id_dosen'   => $request->id_dosen, 
+            'waktu'    => $request->waktu,
+            'hari'       => $request->hari,
+        ]);
+       
+        //redirect to index
+        return redirect()->route('jadwal.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
     /**
@@ -68,6 +116,8 @@ class JadwalController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $jadwal = Jadwal::findOrFail($id);
+        $jadwal->delete();
+       return redirect()->route('jadwal.index')->with(['success' => 'Data Berhasil Dihapus!']);
     }
 }
