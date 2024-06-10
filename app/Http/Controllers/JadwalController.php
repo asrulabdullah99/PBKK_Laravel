@@ -53,11 +53,11 @@ class JadwalController extends Controller
         // ]);
 
         Jadwal::create([
-            'id_matkul'          => $request->id_matkul,
-            'id_kelas'              => $request->id_kelas,
-            'id_dosen'   => $request->id_dosen, 
-            'waktu'    => $request->waktu,
-            'hari'       => $request->hari,
+            'id_matkul'         => $request->id_matkul,
+            'id_kelas'          => $request->id_kelas,
+            'id_dosen'          => $request->id_dosen, 
+            'waktu'             => $request->waktu,
+            'hari'              => $request->hari,
         ]);
        
         //redirect to index
@@ -100,11 +100,11 @@ class JadwalController extends Controller
 
         $jadwal = Jadwal::findOrFail($id);
         $jadwal->update([
-          'id_matkul'          => $request->id_matkul,
+          'id_matkul'               => $request->id_matkul,
             'id_kelas'              => $request->id_kelas,
-            'id_dosen'   => $request->id_dosen, 
-            'waktu'    => $request->waktu,
-            'hari'       => $request->hari,
+            'id_dosen'              => $request->id_dosen, 
+            'waktu'                 => $request->waktu,
+            'hari'                  => $request->hari,
         ]);
        
         //redirect to index
