@@ -1,3 +1,4 @@
+{{-- Header --}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -247,6 +248,12 @@
           </li>
         </ul>
       </nav>
+
+
+{{-- End of Header --}}
+
+
+{{-- Sidebar --}}
       <div class="main-sidebar sidebar-style-2">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
@@ -393,32 +400,39 @@
             </a>
           </div>        </aside>
       </div>
-
-      
-      <!-- Main Content -->
-      <div class="main-content">
-        <section class="section">
-        @yield('content')
+{{-- End of Sidebar --}}
 
 
-        </section>
+<!-- Main Content -->
+<div class="main-content">
+  <section class="section">
+    <div class="section-header">
+      <h1>Default Layout</h1>
+      <div class="section-header-breadcrumb">
+        <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
+        <div class="breadcrumb-item"><a href="#">Layout</a></div>
+        <div class="breadcrumb-item">Default Layout</div>
       </div>
+    </div>
 
+    <div class="section-body">
+      @yield('content')
+    </div>
+  </section>
+</div>
 
+{{-- Footer --}}
 
-
-
-      <footer class="main-footer">
+    <footer class="main-footer">
         <div class="footer-left">
-          Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://nauval.in/">Muhamad Nauval Azhar</a>
+          Copyright &copy; 2024 <div class="bullet"></div> Design By <a href="https://nauval.in/">Muhamad Nauval Azhar</a>
         </div>
-        <div class="footer-right">
-          
+        <div class="footer-right"> 
         </div>
       </footer>
     </div>
   </div>
-
+{{-- End of Footer --}}
   <!-- General JS Scripts -->
   <script src="https://demo.getstisla.com/assets/modules/jquery.min.js"></script>
   <script src="https://demo.getstisla.com/assets/modules/popper.js"></script>
