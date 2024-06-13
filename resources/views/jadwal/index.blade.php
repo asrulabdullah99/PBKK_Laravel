@@ -28,7 +28,7 @@
                                     <th scope="col">No</th>
                                     <th scope="col">Nama Kelas</th>
                                     <th scope="col">Hari</th>
-                                    <th scope="col">Tanggal</th>
+                                    <th scope="col">Waktu</th>
                                     <th scope="col">Nama Dosen</th>
                                     <th scope="col">Mata Kuliah</th>
                                     <th scope="col" style="width: 20%">ACTIONS</th>
