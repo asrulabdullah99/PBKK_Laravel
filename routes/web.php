@@ -17,6 +17,7 @@ Route::get('/', function () {
 });
 
 
+
 Route::resource('/pengguna',UserController::class);
 Route::resource('/kelas',KelasController::class);
 Route::resource('/matakuliah',MatakuliahController::class);

@@ -1,23 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Data Kelas</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body style="background: white">
-
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-12">
-                <div>
-                    <h3 class="text-center my-4">Data Kelas</h3>
-                    <hr>
-                </div>
-                <div class="card border-0 shadow-sm rounded">
-                    <div class="card-body">
+@extends('template.app')
+@section('content')
+<div class="section-header">
+    <h1>Edit Mata Kuliah</h1>
+    <div class="section-header-breadcrumb">
+      <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
+      <div class="breadcrumb-item"><a href="#">Layout</a></div>
+      <div class="breadcrumb-item">Default Layout</div>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-12">
+        <div class="card">
+  <div class="card-body p-0">
                         <form action="{{ route('matakuliah.update', $dataMatakuliah->id) }}" method="POST">
                           @csrf
                           @method('PUT')
@@ -36,16 +30,5 @@
                                 <button type="submit" class="btn btn-primary">Simpan</button>
                               </div>
                           </form>
-           
-                        
-                        {{-- {{ $user->links() }} --}}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
-
-
-
+                        </div>
+                        @endsection
