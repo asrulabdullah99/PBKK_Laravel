@@ -1,73 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Data Jadwal</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" ></script>
-</head>
-<body style="background: white">
-
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-12">
-                <div>
-                    <h3 class="text-center my-4">Data Jadwal</h3>
-                    <hr>
-                </div>
-                <div class="card border-0 shadow-sm rounded">
-                    <div class="card-body">
-                        <a href="{{ route('jadwal.create') }}" class="btn btn-md btn-info mb-3">TAMBAH</a>
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th scope="col">No</th>
-                                    <th scope="col">Nama Kelas</th>
-                                    <th scope="col">Hari</th>
-                                    <th scope="col">Waktu</th>
-                                    <th scope="col">Nama Dosen</th>
-                                    <th scope="col">Mata Kuliah</th>
-                                    <th scope="col" style="width: 20%">ACTIONS</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @forelse ($jadwal as $index => $data_jadwal)
-                                    <tr>
-                                        <td class="text-center">{{ ++$index }}</td>
-                                        <td>{{ $data_jadwal->nama_kelas }}</td>
-                                        <td>{{ $data_jadwal->hari }}</td>
-                                        <td>{{ $data_jadwal->waktu }}</td>
-                                        <td>{{ $data_jadwal->nama_dosen }}</td>
-                                        <td>{{ $data_jadwal->nama_matakuliah }}</td>
-                                        <td class="text-center">
-                                            <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('jadwal.destroy', $data_jadwal->id) }}" method="POST">
-                                                <a href="{{ route('jadwal.show', $data_jadwal->id) }}" class="btn btn-sm btn-dark tooltip-test" title="Tooltip">SHOW</a>
-                                                <a href="{{ route('jadwal.edit', $data_jadwal->id) }}" class="btn btn-sm btn-primary">EDIT</a>
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @empty
-                                    <div class="alert alert-danger">
-                                        Data User Belum Ada.
-                                    </div>
-                                @endforelse
-                            </tbody>
-                        </table>
-                        {{-- {{ $user->links() }} --}}
-                    </div>
-                </div>
+@extends('template.app')
+@section('content')
+<div class="section-header">
+    <h1>Halaman Jadwal</h1>
+    <div class="section-header-breadcrumb">
+        <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
+        <div class="breadcrumb-item"><a href="#">Layout</a></div>
+        <div class="breadcrumb-item">Default Layout</div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <a href="{{ route('jadwal.create') }}" class="btn btn-md btn-info mb-3">TAMBAH</a>
             </div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Nama Kelas</th>
+                        <th scope="col">Hari</th>
+                        <th scope="col">Waktu</th>
+                        <th scope="col">Nama Dosen</th>
+                        <th scope="col">Mata Kuliah</th>
+                        <th scope="col" style="width: 20%">ACTIONS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse ($jadwal as $index => $data_jadwal)
+                    <tr>
+                        <td class="text-center">{{ ++$index }}</td>
+                        <td>{{ $data_jadwal->nama_kelas }}</td>
+                        <td>{{ $data_jadwal->hari }}</td>
+                        <td>{{ $data_jadwal->waktu }}</td>
+                        <td>{{ $data_jadwal->nama_dosen }}</td>
+                        <td>{{ $data_jadwal->nama_matakuliah }}</td>
+                        <td class="text-center">
+                            <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('jadwal.destroy', $data_jadwal->id) }}" method="POST">
+                                <a href="{{ route('jadwal.show', $data_jadwal->id) }}" class="btn btn-sm btn-dark tooltip-test" title="Tooltip">SHOW</a>
+                                <a href="{{ route('jadwal.edit', $data_jadwal->id) }}" class="btn btn-sm btn-primary">EDIT</a>
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
+                            </form>
+                        </td>
+                    </tr>
+                    @empty
+                    <div class="alert alert-danger">
+                        Data User Belum Ada.
+                    </div>
+                    @endforelse
+                </tbody>
+            </table>
+            {{-- {{ $user->links() }} --}}
         </div>
     </div>
-</body>
-</html>
-
-
-
+</div>
+</div>
+</div>
+</div>
+</div>
+@endsection

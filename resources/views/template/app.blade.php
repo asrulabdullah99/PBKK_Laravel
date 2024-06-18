@@ -1,31 +1,36 @@
 {{-- Header --}}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Layout &rsaquo; Default &mdash; Stisla</title>
+  <title>Dashboard Siakad</title>
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://demo.getstisla.com/assets/modules/fontawesome/css/all.min.css">
-  
+
 
   <!-- CSS Libraries -->
 
   <!-- Template CSS -->
   <link rel="stylesheet" href="https://demo.getstisla.com/assets/css/style.css">
   <link rel="stylesheet" href="https://demo.getstisla.com/assets/css/components.css">
-<!-- Start GA -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Start GA -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'UA-94034622-3');
-</script>
-<!-- /END GA --></head>
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-94034622-3');
+  </script>
+  <!-- /END GA -->
+</head>
 
 <body>
   <div id="app">
@@ -227,8 +232,9 @@
             </div>
           </li>
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-            <img alt="image" src="https://demo.getstisla.com/assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
-            <div class="d-sm-none d-lg-inline-block">Hi, Ujang Maman</div></a>
+              <img alt="image" src="https://demo.getstisla.com/assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
+              <div class="d-sm-none d-lg-inline-block">Hi, Ujang Maman</div>
+            </a>
             <div class="dropdown-menu dropdown-menu-right">
               <div class="dropdown-title">Logged in 5 min ago</div>
               <a href="features-profile.html" class="dropdown-item has-icon">
@@ -250,10 +256,10 @@
       </nav>
 
 
-{{-- End of Header --}}
+      {{-- End of Header --}}
 
 
-{{-- Sidebar --}}
+      {{-- Sidebar --}}
       <div class="main-sidebar sidebar-style-2">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
@@ -281,32 +287,33 @@
             <a href="https://getstisla.com/docs" class="btn btn-primary btn-lg btn-block btn-icon-split">
               <i class="fas fa-rocket"></i> Documentation
             </a>
-          </div>        </aside>
+          </div>
+        </aside>
       </div>
-{{-- End of Sidebar --}}
+      {{-- End of Sidebar --}}
 
 
-<!-- Main Content -->
-<div class="main-content">
-  <section class="section">
-     <div class="section-body">
-      @yield('content')
-    </div>
-  </section>
-</div>
+      <!-- Main Content -->
+      <div class="main-content">
+        <section class="section">
+          <div class="section-body">
+            @yield('content')
+          </div>
+        </section>
+      </div>
 
-{{-- Footer --}}
+      {{-- Footer --}}
 
-    <footer class="main-footer">
+      <footer class="main-footer">
         <div class="footer-left">
           Copyright &copy; 2024 <div class="bullet"></div> Design By <a href="https://nauval.in/">Muhamad Nauval Azhar</a>
         </div>
-        <div class="footer-right"> 
+        <div class="footer-right">
         </div>
       </footer>
     </div>
   </div>
-{{-- End of Footer --}}
+  {{-- End of Footer --}}
   <!-- General JS Scripts -->
   <script src="https://demo.getstisla.com/assets/modules/jquery.min.js"></script>
   <script src="https://demo.getstisla.com/assets/modules/popper.js"></script>
@@ -315,13 +322,14 @@
   <script src="https://demo.getstisla.com/assets/modules/nicescroll/jquery.nicescroll.min.js"></script>
   <script src="https://demo.getstisla.com/assets/modules/moment.min.js"></script>
   <script src="https://demo.getstisla.com/assets/js/stisla.js"></script>
-  
+
   <!-- JS Libraies -->
 
   <!-- Page Specific JS File -->
-  
+
   <!-- Template JS File -->
   <script src="https://demo.getstisla.com/assets/js/scripts.js"></script>
   <script src="https://demo.getstisla.com/assets/js/custom.js"></script>
 </body>
+
 </html>
