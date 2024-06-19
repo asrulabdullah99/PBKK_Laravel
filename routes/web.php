@@ -8,13 +8,13 @@ use App\Http\Controllers\KelasController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\MatakuliahController;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::get('/', function () {
-    return view('template.app');
+    return view('welcome');
 });
+
+// Route::get('/', function () {
+//     return view('template.app');
+// });
 
 
 
