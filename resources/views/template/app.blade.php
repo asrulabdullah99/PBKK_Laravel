@@ -10,10 +10,7 @@
   <!-- General CSS Files -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://demo.getstisla.com/assets/modules/fontawesome/css/all.min.css">
-
-
   <!-- CSS Libraries -->
-
   <!-- Template CSS -->
   <link rel="stylesheet" href="https://demo.getstisla.com/assets/css/style.css">
   <link rel="stylesheet" href="https://demo.getstisla.com/assets/css/components.css">
@@ -175,10 +172,7 @@
           </li>
         </ul>
       </nav>
-
-
       {{-- End of Header --}}
-
 
       {{-- Sidebar --}}
       <div class="main-sidebar sidebar-style-2">
@@ -202,7 +196,7 @@
           </ul>
 
           <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
-            <a href="https://getstisla.com/docs" class="btn btn-primary btn-lg btn-block btn-icon-split">
+            <a href="https://sticky-sardine-f5c.notion.site/Manual-Guide-IFApps-Prodi-TI-UM-Pontianak-beedb2641b8f4128a1cfe76ee2bd227f?pvs=4" class="btn btn-primary btn-lg btn-block btn-icon-split">
               <i class="fas fa-rocket"></i> Documentation
             </a>
           </div>
