@@ -184,8 +184,8 @@
             <a href="index.html">SA</a>
           </div>
           <ul class="sidebar-menu">
-            <li class="menu-header">Menu Utama</li>
-                <li class="nav-item{{ request()->is('pengguna') ? ' active' : '' }}"><a href="{{ url('/pengguna') }}"><i class="fas fa-users"></i><span> Pengguna</span></a></li>
+            <li class="menu-header"><i class="fas fa-landmark"></i><span> Menu Utama</span></li>
+                <li class="nav-item{{ request()->is('pengguna') ? ' active' : '' }}"><a href="{{ url('/pengguna') }}"><i class="fas fa-user-friends"></i><span> Pengguna</span></a></li>
                 <li class="nav-item{{ request()->is('kelas') ? ' active' : '' }}"><a href="{{ url('/kelas') }}"><i class="fas fa-chalkboard-teacher"></i><span>Kelas</span></a></li>
                 <li class="nav-item{{ request()->is('matakuliah') ? ' active' : '' }}"><a href="{{ url('/matakuliah') }}"><i class="fas fa-book-open"></i><span>Mata Kuliah</span></a></li>
                 <li class="nav-item{{ request()->is('dosen') ? ' active' : '' }}"><a href="{{ url('/dosen') }}"><i class="fas fa-users"></i><span>Dosen</span></a></li>

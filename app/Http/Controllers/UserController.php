@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\RedirectResponse;
 
 
@@ -43,7 +44,7 @@ class UserController extends Controller
         User::create([
             'username'          => $request->username,
             'email'             => $request->email,
-            'password'          => bcrypt($request->password), 
+            'password'          => Hash::make($request['password']), 
             'level'             => $request->level,
         ]);
         //redirect to index
@@ -78,7 +79,7 @@ class UserController extends Controller
         $pengguna->update([
                 'username'  => $request->username,
                 'email'     => $request->email,
-                'password'  => md5($request->password),
+                'password'  => Hash::make($request['password']),
                 'level'     => $request->level
             ]);
 
