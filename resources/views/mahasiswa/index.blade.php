@@ -14,9 +14,10 @@
             <div class="card-header">
                 <a href="{{ route('mahasiswa.create') }}" class="btn btn-md btn-info mb-3">TAMBAH</a>
             </div>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                  <table class="table table-striped">
+                   <tr>
                         <th scope="col">No</th>
                         <th scope="col">NIM</th>
                         <th scope="col">Email</th>
@@ -25,8 +26,6 @@
                         <th scope="col">Nama Kelas</th>
                         <th scope="col" style="width: 20%">ACTIONS</th>
                     </tr>
-                </thead>
-                <tbody>
                     @forelse ($mahasiswa as $index => $data_mahasiswa)
                     <tr>
                         <td class="text-center">{{ ++$index }}</td>
@@ -50,8 +49,7 @@
                         Data User Belum Ada.
                     </div>
                     @endforelse
-                </tbody>
-            </table>
+             </table>
             {{-- {{ $user->links() }} --}}
         </div>
     </div>

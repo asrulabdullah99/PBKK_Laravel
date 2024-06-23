@@ -25,8 +25,7 @@
               <th scope="col">Level</th>
               <th scope="col">ACTIONS</th>
             </tr>
-            <tr>
-              @forelse ($user as $index => $pengguna)
+            @forelse ($user as $index => $pengguna)
             <tr>
               <td class="text-center">
                 {{ ++$index }}
@@ -50,7 +49,6 @@
               Data User Belum Ada.
             </div>
             @endforelse
-            </tr>
           </table>
         </div>
       </div>

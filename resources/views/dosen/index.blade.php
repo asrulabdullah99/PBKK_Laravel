@@ -14,8 +14,9 @@
             <div class="card-header">
                 <a href="{{ route('dosen.create') }}" class="btn btn-md btn-info mb-3">TAMBAH</a>
             </div>
-            <table class="table table-bordered">
-                <thead>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                  <table class="table table-striped">
                     <tr>
                         <th scope="col">No</th>
                         <th scope="col">NIDN</th>
@@ -25,8 +26,6 @@
                         <th scope="col">Username</th>
                         <th scope="col" style="width: 20%">ACTIONS</th>
                     </tr>
-                </thead>
-                <tbody>
                     @forelse ($dosen as $index => $data_dosen)
                     <tr>
                         <td class="text-center">{{ ++$index }}</td>
@@ -50,12 +49,11 @@
                         Data User Belum Ada.
                     </div>
                     @endforelse
-                </tbody>
             </table>
             {{-- {{ $user->links() }} --}}
         </div>
     </div>
-</div>
+  </div>
 </div>
 </div>
 </div>
