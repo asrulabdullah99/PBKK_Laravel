@@ -23,6 +23,7 @@
               <th scope="col">Email</th>
               <th scope="col">Password</th>
               <th scope="col">Level</th>
+              <th scope="col">Updated at</th>
               <th scope="col">ACTIONS</th>
             </tr>
             @forelse ($user as $index => $pengguna)
@@ -34,6 +35,7 @@
               <td>{{ $pengguna->email }}</td>
               <td>{!! Str::limit($pengguna->password,10) !!}</td>
               <td>{{ $pengguna->level }}</td>
+              <td>{{ $pengguna->updated_at }}</td>
               <td class="text-center">
                 <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('pengguna.destroy', $pengguna->id) }}" method="POST">
                   <a href="{{ route('pengguna.show', $pengguna->id) }}" class="btn btn-sm btn-dark">SHOW</a>
