@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\User;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -35,6 +38,31 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
-        $this->middleware('auth')->only('logout');
+      //  $this->middleware('auth')->only('logout');
+    }
+
+    public function login(Request $request): RedirectResponse
+    {   
+        $input = $request->all();
+     
+        $this->validate($request, [
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+     
+        if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))
+        {
+            if (auth()->user()->level == 'dosen') {
+                return redirect()->route('dosen.home');
+            }else if (auth()->user()->level == 'mahasiswa') {
+                return redirect()->route('mahasiswa.home');
+            }else{
+                return redirect()->route('home');
+            }
+        }else{
+            return redirect()->route('login')
+                ->with('error','Email-Address And Password Are Wrong.');
+        }
+          
     }
 }
