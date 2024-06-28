@@ -151,23 +151,16 @@
           </li>
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
               <img alt="image" src="https://demo.getstisla.com/assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
-              <div class="d-sm-none d-lg-inline-block">Hi, Ujang Maman</div>
+              <div class="d-sm-none d-lg-inline-block"> {{ Auth::user()->username }}</div>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
-              <div class="dropdown-title">Logged in 5 min ago</div>
-              <a href="features-profile.html" class="dropdown-item has-icon">
-                <i class="far fa-user"></i> Profile
+              <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                {{ __('Logout') }}
               </a>
-              <a href="features-activities.html" class="dropdown-item has-icon">
-                <i class="fas fa-bolt"></i> Activities
-              </a>
-              <a href="features-settings.html" class="dropdown-item has-icon">
-                <i class="fas fa-cog"></i> Settings
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item has-icon text-danger">
-                <i class="fas fa-sign-out-alt"></i> Logout
-              </a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+              </form>
             </div>
           </li>
         </ul>
@@ -185,14 +178,14 @@
           </div>
           <ul class="sidebar-menu">
             <li class="menu-header"><i class="fas fa-landmark"></i><span> Menu Utama</span></li>
-                <li class="nav-item{{ request()->is('pengguna') ? ' active' : '' }}"><a href="{{ url('/pengguna') }}"><i class="fas fa-user-friends"></i><span> Pengguna</span></a></li>
-                <li class="nav-item{{ request()->is('kelas') ? ' active' : '' }}"><a href="{{ url('/kelas') }}"><i class="fas fa-chalkboard-teacher"></i><span>Kelas</span></a></li>
-                <li class="nav-item{{ request()->is('matakuliah') ? ' active' : '' }}"><a href="{{ url('/matakuliah') }}"><i class="fas fa-book-open"></i><span>Mata Kuliah</span></a></li>
-                <li class="nav-item{{ request()->is('dosen') ? ' active' : '' }}"><a href="{{ url('/dosen') }}"><i class="fas fa-users"></i><span>Dosen</span></a></li>
-                <li class="nav-item{{ request()->is('mahasiswa') ? ' active' : '' }}"><a href="{{ url('/mahasiswa') }}"><i class="fas fa-user-graduate"></i><span>Mahasiswa</span></a></li>
-                <li class="nav-item{{ request()->is('jadwal') ? ' active' : '' }}"><a href="{{ url('/jadwal') }}"><i class="far fa-bell"></i><span>Jadwal</span></a></li>
-              </ul>
-            </li>
+            <li class="nav-item{{ request()->is('pengguna') ? ' active' : '' }}"><a href="{{ url('/pengguna') }}"><i class="fas fa-user-friends"></i><span> Pengguna</span></a></li>
+            <li class="nav-item{{ request()->is('kelas') ? ' active' : '' }}"><a href="{{ url('/kelas') }}"><i class="fas fa-chalkboard-teacher"></i><span>Kelas</span></a></li>
+            <li class="nav-item{{ request()->is('matakuliah') ? ' active' : '' }}"><a href="{{ url('/matakuliah') }}"><i class="fas fa-book-open"></i><span>Mata Kuliah</span></a></li>
+            <li class="nav-item{{ request()->is('dosen') ? ' active' : '' }}"><a href="{{ url('/dosen') }}"><i class="fas fa-users"></i><span>Dosen</span></a></li>
+            <li class="nav-item{{ request()->is('mahasiswa') ? ' active' : '' }}"><a href="{{ url('/mahasiswa') }}"><i class="fas fa-user-graduate"></i><span>Mahasiswa</span></a></li>
+            <li class="nav-item{{ request()->is('jadwal') ? ' active' : '' }}"><a href="{{ url('/jadwal') }}"><i class="far fa-bell"></i><span>Jadwal</span></a></li>
+          </ul>
+          </li>
           </ul>
 
           <div class="mt-4 mb-4 p-3 hide-sidebar-mini">

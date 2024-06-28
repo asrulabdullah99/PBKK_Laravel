@@ -24,16 +24,16 @@ class HomeController extends Controller
      */
     public function index(): View
     {
-        return view('home');
+        return view('levelAdmin.home');
     }
 
     public function dosenHome(): View
     {
-        return view('dosenHome');
+        return view('levelDosen.dosenHome');
     }
   
     public function mahasiswaHome(): View
     {
-        return view('mahasiswaHome');
+        return view('levelMahasiswa.mahasiswaHome');
     }
 }

@@ -57,7 +57,7 @@ class LoginController extends Controller
             }else if (auth()->user()->level == 'mahasiswa') {
                 return redirect()->route('mahasiswa.home');
             }else{
-                return redirect()->route('home');
+                return redirect()->route('admin');
             }
         }else{
             return redirect()->route('login')

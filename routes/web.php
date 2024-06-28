@@ -66,14 +66,15 @@ All Normal Users Routes List
 --------------------------------------------*/
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
   
-  Route::get('/home', [HomeController::class, 'index'])->name('home');
+  Route::get('/admin', [HomeController::class, 'index'])->name('admin');
   Route::delete('/logout', [LoginController::class, 'logout'])->name('logout');
   Route::resource('/pengguna', UserController::class);
-  // Route::resource('/kelas', KelasController::class);
-  // Route::resource('/matakuliah', MatakuliahController::class);
-  // Route::resource('/dosen', DosenController::class);
-  // Route::resource('/mahasiswa', MahasiswaController::class);
-  // Route::resource('/jadwal', JadwalController::class);
+  Route::resource('/kelas', KelasController::class);
+  Route::resource('/matakuliah', MatakuliahController::class);
+  //Route::resource('/dosen', DosenController::class);
+  //Route::resource('/mahasiswa', MahasiswaController::class);
+  Route::resource('/jadwal', JadwalController::class);
+
 });
 
 /*------------------------------------------
@@ -85,6 +86,8 @@ Route::middleware(['auth', 'user-access:dosen'])->group(function () {
 
   Route::get('/dosen/home', [HomeController::class, 'dosenHome'])->name('dosen.home');
   Route::delete('/logout', [LoginController::class, 'logout'])->name('logout');
+  Route::get('/pengguna', [UserController::class,'index'])->name('pengguna.index');
+  
 });
 
 /*------------------------------------------
@@ -98,6 +101,6 @@ Route::middleware(['auth', 'user-access:mahasiswa'])->group(function () {
   Route::delete('/logout', [LoginController::class, 'logout'])->name('logout');
 });
 
-//Route::resource('/pengguna', UserController::class);
+
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
