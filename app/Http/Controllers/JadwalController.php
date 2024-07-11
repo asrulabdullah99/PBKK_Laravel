@@ -23,7 +23,7 @@ class JadwalController extends Controller
             ->select('kelas.nama_kelas','jadwal.hari','jadwal.waktu','dosen.nama_dosen','matakuliah.nama_matakuliah','jadwal.id')
             ->get();
 
-            return view('jadwal.index',compact('jadwal'));
+            return view('levelAdmin.jadwal.index',compact('jadwal'));
     }
 
     /**
@@ -34,7 +34,7 @@ class JadwalController extends Controller
         $matakuliah = Matakuliah::all();
         $kelas = Kelas::all();
         $dosen = Dosen::all();
-        return view('jadwal.create', compact('matakuliah','kelas','dosen'));
+        return view('levelAdmin.jadwal.create', compact('matakuliah','kelas','dosen'));
     }
 
     /**
@@ -61,7 +61,7 @@ class JadwalController extends Controller
         ]);
        
         //redirect to index
-        return redirect()->route('jadwal.index')->with(['success' => 'Data Berhasil Disimpan!']);
+        return redirect()->route('levelAdmin.jadwal.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
     /**
@@ -82,7 +82,7 @@ class JadwalController extends Controller
         $kelas = Kelas::all();
         $dosen = Dosen::all();
 
-        return view('jadwal.edit', compact('jadwal','matakuliah','kelas','dosen'));
+        return view('levelAdmin.jadwal.edit', compact('jadwal','matakuliah','kelas','dosen'));
     }
 
     /**
@@ -108,7 +108,7 @@ class JadwalController extends Controller
         ]);
        
         //redirect to index
-        return redirect()->route('jadwal.index')->with(['success' => 'Data Berhasil Disimpan!']);
+        return redirect()->route('levelAdmin.jadwal.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
     /**
@@ -118,6 +118,6 @@ class JadwalController extends Controller
     {
         $jadwal = Jadwal::findOrFail($id);
         $jadwal->delete();
-       return redirect()->route('jadwal.index')->with(['success' => 'Data Berhasil Dihapus!']);
+       return redirect()->route('levelAdmin.jadwal.index')->with(['success' => 'Data Berhasil Dihapus!']);
     }
 }

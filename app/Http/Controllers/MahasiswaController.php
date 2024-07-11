@@ -15,7 +15,7 @@ class MahasiswaController extends Controller
     public function index()
     {
         $mahasiswa = Mahasiswa::latest()->paginate(10);
-        return view('mahasiswa.index',compact('mahasiswa'));
+        return view('levelAdmin.mahasiswa.index',compact('mahasiswa'));
     }
 
     /**
@@ -25,7 +25,7 @@ class MahasiswaController extends Controller
     {
         $user = User::where('level','mahasiswa')->get();
         $kelas = Kelas::all();
-        return view('mahasiswa.create', compact('user','kelas'));
+        return view('levelAdmin.mahasiswa.create', compact('user','kelas'));
     }
 
     /**
@@ -53,7 +53,7 @@ class MahasiswaController extends Controller
         ]);
        
         //redirect to index
-        return redirect()->route('mahasiswa.index')->with(['success' => 'Data Berhasil Disimpan!']);
+        return redirect()->route('levelAdmin.mahasiswa.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
     /**
@@ -73,7 +73,7 @@ class MahasiswaController extends Controller
         $user = User::where('level','mahasiswa')->get();
         $kelas = Kelas::all();
 
-        return view('mahasiswa.edit', compact('mahasiswa','user','kelas'));
+        return view('levelAdmin.mahasiswa.edit', compact('mahasiswa','user','kelas'));
     }
 
     /**
@@ -100,7 +100,7 @@ class MahasiswaController extends Controller
         ]);
        
         //redirect to index
-        return redirect()->route('mahasiswa.index')->with(['success' => 'Data Berhasil Disimpan!']);
+        return redirect()->route('levelAdmin.mahasiswa.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
     /**
@@ -110,6 +110,6 @@ class MahasiswaController extends Controller
     {
         $mahasiswa = Mahasiswa::findOrFail($nim);
          $mahasiswa->delete();
-        return redirect()->route('mahasiswa.index')->with(['success' => 'Data Berhasil Dihapus!']);
+        return redirect()->route('levelAdmin.mahasiswa.index')->with(['success' => 'Data Berhasil Dihapus!']);
     }
 }

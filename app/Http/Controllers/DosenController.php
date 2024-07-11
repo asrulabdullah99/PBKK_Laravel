@@ -13,13 +13,13 @@ class DosenController extends Controller
     public function index(): View
     {
        $dosen = Dosen::latest()->paginate(10);
-       return view('dosen.index',compact('dosen'));
+       return view('levelAdmin.dosen.index',compact('dosen'));
     }
 
     public function create(): View
     {
         $user = User::where('level','dosen')->get();
-        return view('dosen.create', compact('user'));
+        return view('levelAdmin.dosen.create', compact('user'));
     }
 
     public function store(Request $request): RedirectResponse
@@ -40,14 +40,14 @@ class DosenController extends Controller
         ]);
        
         //redirect to index
-        return redirect()->route('dosen.index')->with(['success' => 'Data Berhasil Disimpan!']);
+        return redirect()->route('levelAdmin.dosen.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
     public function show(string $id): View
     {
         // $pengguna = User::findOrFail($id);
 
-        // return view('user.show', compact('pengguna'));
+        // return view('levelAdmin.user.show', compact('pengguna'));
     }
 
     public function edit(string $nidn): View
@@ -55,7 +55,7 @@ class DosenController extends Controller
         $dosen = Dosen::findOrFail($nidn);
         $user = User::where('level','dosen')->get();
 
-        return view('dosen.edit', compact('dosen','user'));
+        return view('levelAdmin.dosen.edit', compact('dosen','user'));
     }
 
     public function update(Request $request, $id): RedirectResponse
@@ -70,7 +70,7 @@ class DosenController extends Controller
             'nama_dosen'       => $request->nama_dosen, 
             'jenis_kelamin'    => $request->jenis_kelamin,
         ]);
-         return redirect()->route('dosen.index')->with(['success' => 'Data Berhasil Diubah!']);
+         return redirect()->route('levelAdmin.dosen.index')->with(['success' => 'Data Berhasil Diubah!']);
     }
 
 
@@ -78,7 +78,7 @@ class DosenController extends Controller
     {
          $dosen = Dosen::findOrFail($nidn);
          $dosen->delete();
-        return redirect()->route('dosen.index')->with(['success' => 'Data Berhasil Dihapus!']);
+        return redirect()->route('levelAdmin.dosen.index')->with(['success' => 'Data Berhasil Dihapus!']);
     }
 
     

@@ -12,7 +12,7 @@
   <div class="col-12">
     <div class="card">
       <div class="card-header">
-        <a href="{{ route('pengguna.create') }}" class="btn btn-md btn-info mb-3">TAMBAH</a>
+        <a href="{{ route('admin.pengguna.create') }}" class="btn btn-md btn-info mb-3">TAMBAH</a>
       </div>
       <div class="card-body p-0">
         @if (session('status'))

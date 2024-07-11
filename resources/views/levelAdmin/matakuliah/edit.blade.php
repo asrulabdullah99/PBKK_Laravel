@@ -12,7 +12,7 @@
       <div class="col-12">
         <div class="card">
   <div class="card-body p-0">
-                        <form action="{{ route('matakuliah.update', $dataMatakuliah->id) }}" method="POST">
+                        <form action="{{ route('admin.matakuliah.update', $dataMatakuliah->id) }}" method="POST">
                           @csrf
                           @method('PUT')
                             <div class="form-group">

@@ -12,7 +12,7 @@
     <div class="col-12">
       <div class="card">
         <div class="card-header">
-           <a href="{{ route('matakuliah.create') }}" class="btn btn-md btn-info mb-3">TAMBAH</a>
+           <a href="{{ route('admin.matakuliah.create') }}" class="btn btn-md btn-info mb-3">TAMBAH</a>
         </div>
         <div class="card-body p-0">
             <div class="table-responsive">
@@ -28,9 +28,9 @@
                         <td class="text-center">{{ ++$index }} </td>
                         <td>{{ $matakuliah->nama_matakuliah }}</td>
                         <td class="text-center">
-                        <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('matakuliah.destroy', $matakuliah->id) }}" method="POST">
-                            <a href="{{ route('matakuliah.show', $matakuliah->id) }}" class="btn btn-sm btn-dark">SHOW</a>
-                            <a href="{{ route('matakuliah.edit', $matakuliah->id) }}" class="btn btn-sm btn-primary">EDIT</a>
+                        <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('admin.matakuliah.destroy', $matakuliah->id) }}" method="POST">
+                            <a href="{{ route('admin.matakuliah.show', $matakuliah->id) }}" class="btn btn-sm btn-dark">SHOW</a>
+                            <a href="{{ route('admin.matakuliah.edit', $matakuliah->id) }}" class="btn btn-sm btn-primary">EDIT</a>
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>

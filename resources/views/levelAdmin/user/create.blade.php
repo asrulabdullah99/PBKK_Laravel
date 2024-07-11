@@ -12,7 +12,7 @@
   <div class="col-12">
     <div class="card">
       <div class="card-body p-0">
-        <form action="{{ route('pengguna.store') }}" method="POST">
+        <form action="{{ route('admin.pengguna.store') }}" method="POST">
           @csrf
           <div class="form-group">
             <label for="exampleInputEmail1">Username</label>

@@ -22,12 +22,12 @@ class UserController extends Controller
     public function index(): View
     {
        $user = User::latest()->paginate(10);
-       return view('user.index',compact('user'));
+       return view('levelAdmin.user.index',compact('user'));
     }
 
     public function create(): View
     {
-        return view('user.create');
+        return view('levelAdmin.user.create');
     }
 
     public function store(Request $request): RedirectResponse
@@ -48,21 +48,21 @@ class UserController extends Controller
             'level'             => $request->level,
         ]);
         //redirect to index
-        return redirect()->route('pengguna.index')->with(['success' => 'Data Berhasil Disimpan!']);
+        return redirect()->route('levelAdmin.pengguna.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
     public function show(string $id): View
     {
         $pengguna = User::findOrFail($id);
 
-        return view('user.show', compact('pengguna'));
+        return view('levelAdmin.user.show', compact('pengguna'));
     }
 
     public function edit(string $id): View
     {
         $pengguna = User::findOrFail($id);
 
-        return view('user.edit', compact('pengguna'));
+        return view('levelAdmin.user.edit', compact('pengguna'));
     }
 
     public function update(Request $request, $id): RedirectResponse
@@ -83,7 +83,7 @@ class UserController extends Controller
                 'level'     => $request->level
             ]);
 
-        return redirect()->route('pengguna.index')->with(['success' => 'Data Berhasil Diubah!']);
+        return redirect()->route('levelAdmin.pengguna.index')->with(['success' => 'Data Berhasil Diubah!']);
     }
 
 
@@ -91,7 +91,7 @@ class UserController extends Controller
     {
         $pengguna = User::findOrFail($id);
         $pengguna->delete();
-        return redirect()->route('pengguna.index')->with(['success' => 'Data Berhasil Dihapus!']);
+        return redirect()->route('levelAdmin.pengguna.index')->with(['success' => 'Data Berhasil Dihapus!']);
     }
 
 

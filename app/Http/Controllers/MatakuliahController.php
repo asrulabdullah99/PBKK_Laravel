@@ -12,12 +12,12 @@ class MatakuliahController extends Controller
     public function index(): View
     {
        $dataMatakuliah = Matakuliah::latest()->paginate(10);
-       return view('matakuliah.index',compact('dataMatakuliah'));
+       return view('levelAdmin.matakuliah.index',compact('dataMatakuliah'));
     }
 
     public function create(): View
     {
-        return view('matakuliah.create');
+        return view('levelAdmin.matakuliah.create');
     }
 
     public function store(Request $request): RedirectResponse
@@ -38,14 +38,14 @@ class MatakuliahController extends Controller
     public function edit(string $id): View
     {
         $dataMatakuliah = Matakuliah::findOrFail($id);
-        return view('matakuliah.edit', compact('dataMatakuliah'));
+        return view('levelAdmin.matakuliah.edit', compact('dataMatakuliah'));
     }
 
     public function show(string $id): View
     {
         $matakuliah = Matakuliah::findOrFail($id);
 
-        return view('matakuliah.show', compact('matakuliah'));
+        return view('levelAdmin.matakuliah.show', compact('matakuliah'));
     }
 
     public function update(Request $request, $id): RedirectResponse
@@ -60,13 +60,13 @@ class MatakuliahController extends Controller
              'nama_matakuliah'  => $request->nama_matakuliah
             ]);
 
-        return redirect()->route('matakuliah.index')->with(['success' => 'Data Berhasil Diubah!']);
+        return redirect()->route('levelAdmin.matakuliah.index')->with(['success' => 'Data Berhasil Diubah!']);
     }
 
     public function destroy($id): RedirectResponse
     {
         $matakuliah = Matakuliah::findOrFail($id);
         $matakuliah->delete();
-        return redirect()->route('matakuliah.index')->with(['success' => 'Data Berhasil Dihapus!']);
+        return redirect()->route('levelAdmin.matakuliah.index')->with(['success' => 'Data Berhasil Dihapus!']);
     }
 }

@@ -12,7 +12,7 @@
   <div class="col-12">
     <div class="card">
       <div class="card-body p-0">
-        <form action="{{ route('pengguna.update', $pengguna->id) }}" method="POST">
+        <form action="{{ route('admin.pengguna.update', $pengguna->id) }}" method="POST">
           @csrf
           @method('PUT')
 

@@ -12,12 +12,12 @@ class KelasController extends Controller
     public function index(): View
     {
        $dataKelas = Kelas::latest()->paginate(10);
-       return view('kelas.index',compact('dataKelas'));
+       return view('levelAdmin.kelas.index',compact('dataKelas'));
     }
 
     public function create(): View
     {
-        return view('kelas.create');
+        return view('levelAdmin.kelas.create');
     }
 
     public function store(Request $request): RedirectResponse
@@ -38,14 +38,14 @@ class KelasController extends Controller
     public function edit(string $id): View
     {
         $dataKelas = Kelas::findOrFail($id);
-        return view('kelas.edit', compact('dataKelas'));
+        return view('levelAdmin.kelas.edit', compact('dataKelas'));
     }
 
     public function show(string $id): View
     {
         $kelas = Kelas::findOrFail($id);
 
-        return view('kelas.show', compact('kelas'));
+        return view('levelAdmin.kelas.show', compact('kelas'));
     }
 
     public function update(Request $request, $id): RedirectResponse
@@ -60,13 +60,13 @@ class KelasController extends Controller
              'nama_kelas'  => $request->nama_kelas
             ]);
 
-        return redirect()->route('kelas.index')->with(['success' => 'Data Berhasil Diubah!']);
+        return redirect()->route('levelAdmin.kelas.index')->with(['success' => 'Data Berhasil Diubah!']);
     }
 
     public function destroy($id): RedirectResponse
     {
         $kelas = Kelas::findOrFail($id);
         $kelas->delete();
-        return redirect()->route('kelas.index')->with(['success' => 'Data Berhasil Dihapus!']);
+        return redirect()->route('levelAdmin.kelas.index')->with(['success' => 'Data Berhasil Dihapus!']);
     }
 }

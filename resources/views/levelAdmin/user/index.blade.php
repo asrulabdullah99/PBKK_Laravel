@@ -12,7 +12,7 @@
   <div class="col-12">
     <div class="card">
       <div class="card-header">
-        <a href="{{ route('pengguna.create') }}" class="btn btn-md btn-info mb-3">TAMBAH</a>
+        <a href="{{ route('admin.pengguna.create') }}" class="btn btn-md btn-info mb-3">TAMBAH</a>
       </div>
       <div class="card-body p-0">
         <div class="table-responsive">
@@ -37,9 +37,9 @@
               <td>{{ $pengguna->level }}</td>
               <td>{{ $pengguna->updated_at }}</td>
               <td class="text-center">
-                <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('pengguna.destroy', $pengguna->id) }}" method="POST">
-                  <a href="{{ route('pengguna.show', $pengguna->id) }}" class="btn btn-sm btn-dark">SHOW</a>
-                  <a href="{{ route('pengguna.edit', $pengguna->id) }}" class="btn btn-sm btn-primary">EDIT</a>
+                <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('admin.pengguna.destroy', $pengguna->id) }}" method="POST">
+                  <a href="{{ route('admin.pengguna.show', $pengguna->id) }}" class="btn btn-sm btn-dark">SHOW</a>
+                  <a href="{{ route('admin.pengguna.edit', $pengguna->id) }}" class="btn btn-sm btn-primary">EDIT</a>
                   @csrf
                   @method('DELETE')
                   <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>

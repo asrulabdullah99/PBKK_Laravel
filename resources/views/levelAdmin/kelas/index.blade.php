@@ -12,7 +12,7 @@
   <div class="col-12">
     <div class="card">
       <div class="card-header">
-                <a href="{{ route('kelas.create') }}" class="btn btn-md btn-info mb-3">TAMBAH</a>
+                <a href="{{ route('admin.kelas.create') }}" class="btn btn-md btn-info mb-3">TAMBAH</a>
             </div>
                 <table class="table table-bordered">
                     <thead>
@@ -30,9 +30,9 @@
                             </td>
                             <td>{{ $kelas->nama_kelas }}</td>
                             <td class="text-center">
-                                <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('kelas.destroy', $kelas->id) }}" method="POST">
-                                    <a href="{{ route('kelas.show', $kelas->id) }}" class="btn btn-sm btn-dark">SHOW</a>
-                                    <a href="{{ route('kelas.edit', $kelas->id) }}" class="btn btn-sm btn-primary">EDIT</a>
+                                <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('admin.kelas.destroy', $kelas->id) }}" method="POST">
+                                    <a href="{{ route('admin.kelas.show', $kelas->id) }}" class="btn btn-sm btn-dark">SHOW</a>
+                                    <a href="{{ route('admin.kelas.edit', $kelas->id) }}" class="btn btn-sm btn-primary">EDIT</a>
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
