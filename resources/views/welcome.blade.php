@@ -143,28 +143,12 @@
 				<div class="collapse navbar-collapse" id="navbars-host">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-						<li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-						<li class="nav-item active dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Course </a>
-							<div class="dropdown-menu" aria-labelledby="dropdown-a">
-								<a class="dropdown-item" href="course-grid-2.html">Course Grid 2 </a>
-								<a class="dropdown-item" href="course-grid-3.html">Course Grid 3 </a>
-								<a class="dropdown-item" href="course-grid-4.html">Course Grid 4 </a>
-							</div>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Blog </a>
-							<div class="dropdown-menu" aria-labelledby="dropdown-a">
-								<a class="dropdown-item" href="blog.html">Blog </a>
-								<a class="dropdown-item" href="blog-single.html">Blog single </a>
-							</div>
-						</li>
-						<li class="nav-item"><a class="nav-link" href="teachers.html">Teachers</a></li>
-						<li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
-						<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+						<li class="nav-item"><a class="nav-link" href="about.html">Mata Kuliah</a></li>
+						<li class="nav-item"><a class="nav-link" href="about.html">Dosen</a></li>
+						<li class="nav-item"><a class="nav-link" href="teachers.html">Mahasiswa</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a class="hover-btn-new log" href="#" data-toggle="modal" data-target="#login"><span>Book Now</span></a></li>
+						<li><a class="hover-btn-new log" href="/login"><span>Login</span></a></li>
 					</ul>
 				</div>
 			</div>
