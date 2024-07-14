@@ -53,7 +53,7 @@ class MahasiswaController extends Controller
         ]);
        
         //redirect to index
-        return redirect()->route('levelAdmin.mahasiswa.index')->with(['success' => 'Data Berhasil Disimpan!']);
+        return redirect()->route('admin.mahasiswa.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
     /**
@@ -100,7 +100,7 @@ class MahasiswaController extends Controller
         ]);
        
         //redirect to index
-        return redirect()->route('levelAdmin.mahasiswa.index')->with(['success' => 'Data Berhasil Disimpan!']);
+        return redirect()->route('admin.mahasiswa.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
     /**
@@ -110,6 +110,6 @@ class MahasiswaController extends Controller
     {
         $mahasiswa = Mahasiswa::findOrFail($nim);
          $mahasiswa->delete();
-        return redirect()->route('levelAdmin.mahasiswa.index')->with(['success' => 'Data Berhasil Dihapus!']);
+        return redirect()->route('admin.mahasiswa.index')->with(['success' => 'Data Berhasil Dihapus!']);
     }
 }

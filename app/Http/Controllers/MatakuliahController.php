@@ -60,13 +60,13 @@ class MatakuliahController extends Controller
              'nama_matakuliah'  => $request->nama_matakuliah
             ]);
 
-        return redirect()->route('levelAdmin.matakuliah.index')->with(['success' => 'Data Berhasil Diubah!']);
+        return redirect()->route('admin.matakuliah.index')->with(['success' => 'Data Berhasil Diubah!']);
     }
 
     public function destroy($id): RedirectResponse
     {
         $matakuliah = Matakuliah::findOrFail($id);
         $matakuliah->delete();
-        return redirect()->route('levelAdmin.matakuliah.index')->with(['success' => 'Data Berhasil Dihapus!']);
+        return redirect()->route('admin.matakuliah.index')->with(['success' => 'Data Berhasil Dihapus!']);
     }
 }

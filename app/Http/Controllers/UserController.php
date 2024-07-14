@@ -48,7 +48,7 @@ class UserController extends Controller
             'level'             => $request->level,
         ]);
         //redirect to index
-        return redirect()->route('levelAdmin.pengguna.index')->with(['success' => 'Data Berhasil Disimpan!']);
+        return redirect()->route('admin.pengguna.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
     public function show(string $id): View
@@ -83,7 +83,7 @@ class UserController extends Controller
                 'level'     => $request->level
             ]);
 
-        return redirect()->route('levelAdmin.pengguna.index')->with(['success' => 'Data Berhasil Diubah!']);
+        return redirect()->route('admin.pengguna.index')->with(['success' => 'Data Berhasil Diubah!']);
     }
 
 
@@ -91,7 +91,7 @@ class UserController extends Controller
     {
         $pengguna = User::findOrFail($id);
         $pengguna->delete();
-        return redirect()->route('levelAdmin.pengguna.index')->with(['success' => 'Data Berhasil Dihapus!']);
+        return redirect()->route('admin.pengguna.index')->with(['success' => 'Data Berhasil Dihapus!']);
     }
 
 

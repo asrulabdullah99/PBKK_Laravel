@@ -182,7 +182,7 @@
             @endif 
             @if(auth()->user()->level =='dosen')
             @include('template.sidebarDosen')
-            @endif
+            @endif 
             @if(auth()->user()->level =='mahasiswa')
             @include('template.sidebarMahasiswa')
             @endif 

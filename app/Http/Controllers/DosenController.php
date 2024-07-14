@@ -40,7 +40,7 @@ class DosenController extends Controller
         ]);
        
         //redirect to index
-        return redirect()->route('levelAdmin.dosen.index')->with(['success' => 'Data Berhasil Disimpan!']);
+        return redirect()->route('admin.dosen.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
     public function show(string $id): View
@@ -70,7 +70,7 @@ class DosenController extends Controller
             'nama_dosen'       => $request->nama_dosen, 
             'jenis_kelamin'    => $request->jenis_kelamin,
         ]);
-         return redirect()->route('levelAdmin.dosen.index')->with(['success' => 'Data Berhasil Diubah!']);
+         return redirect()->route('admin.dosen.index')->with(['success' => 'Data Berhasil Diubah!']);
     }
 
 
@@ -78,7 +78,7 @@ class DosenController extends Controller
     {
          $dosen = Dosen::findOrFail($nidn);
          $dosen->delete();
-        return redirect()->route('levelAdmin.dosen.index')->with(['success' => 'Data Berhasil Dihapus!']);
+        return redirect()->route('admin.dosen.index')->with(['success' => 'Data Berhasil Dihapus!']);
     }
 
     

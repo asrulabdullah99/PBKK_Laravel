@@ -61,7 +61,7 @@ class JadwalController extends Controller
         ]);
        
         //redirect to index
-        return redirect()->route('levelAdmin.jadwal.index')->with(['success' => 'Data Berhasil Disimpan!']);
+        return redirect()->route('admin.jadwal.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
     /**
@@ -108,7 +108,7 @@ class JadwalController extends Controller
         ]);
        
         //redirect to index
-        return redirect()->route('levelAdmin.jadwal.index')->with(['success' => 'Data Berhasil Disimpan!']);
+        return redirect()->route('admin.jadwal.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
     /**
@@ -118,6 +118,6 @@ class JadwalController extends Controller
     {
         $jadwal = Jadwal::findOrFail($id);
         $jadwal->delete();
-       return redirect()->route('levelAdmin.jadwal.index')->with(['success' => 'Data Berhasil Dihapus!']);
+       return redirect()->route('admin.jadwal.index')->with(['success' => 'Data Berhasil Dihapus!']);
     }
 }

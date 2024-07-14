@@ -12,15 +12,12 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\MatakuliahController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DosenJadwalController;
+use App\Http\Controllers\MahasiswaJadwalController;
 
 Route::get('/', function () {
   return view('welcome');
 });
-// Route::get('/', function () {
-//   return view('landing_page');
-// });
-
-
 
 Route::group(['middleware' => 'guest'], function () {
   Route::get('/register', [RegisterController::class, 'register'])->name('register');
@@ -82,10 +79,10 @@ All Admin Routes List
 --------------------------------------------*/
 Route::middleware('auth', 'user-access:dosen')->name('dosen.')->group(function () {
 
+  Route::resource('/dosen/jadwal', DosenJadwalController::class);
+  Route::get('/dosen/jadwal/{jadwal}/lihat', [DosenJadwalController::class, 'show'])->name('show');
   Route::get('/dosen/home', [HomeController::class, 'dosenHome'])->name('dosen.home');
   Route::delete('/logout', [LoginController::class, 'logout'])->name('logout');
-  Route::get('/pengguna', [UserController::class,'index'])->name('pengguna.index');
-  
 });
 
 /*------------------------------------------
@@ -93,12 +90,9 @@ Route::middleware('auth', 'user-access:dosen')->name('dosen.')->group(function (
 All Admin Routes List
 --------------------------------------------
 --------------------------------------------*/
-Route::middleware(['auth', 'user-access:mahasiswa'])->group(function () {
-
+Route::middleware('auth', 'user-access:mahasiswa')->name('mahasiswa.')->group(function () {
+  Route::resource('/mahasiswa/jadwal', MahasiswaJadwalController::class);
   Route::get('/mahasiswa/home', [HomeController::class, 'mahasiswaHome'])->name('mahasiswa.home');
   Route::delete('/logout', [LoginController::class, 'logout'])->name('logout');
 });
 
-
-
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
