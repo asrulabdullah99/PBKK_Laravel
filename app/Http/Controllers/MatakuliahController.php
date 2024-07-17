@@ -32,7 +32,7 @@ class MatakuliahController extends Controller
             'nama_matakuliah'        => $request->nama_matakuliah,
         ]);
         //redirect to index
-        return redirect()->route('matakuliah.index')->with(['success' => 'Data Berhasil Disimpan!']);
+        return redirect()->route('admin.matakuliah.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
     public function edit(string $id): View
